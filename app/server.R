@@ -30,7 +30,7 @@ predictProbabilityForEmail <- function (emailProperties) {
     predict(fit, newdata = testEmail, type = "response")
 }
 
-emails <- loadData("email.txt")
+emails <- loadData("http://www.milanfort.com/spam-filtering/data/email.txt")
 train <- sample(c(TRUE, FALSE), size = nrow(emails), replace = TRUE, prob = c(0.6, 0.4))
 fit <- glm(spam~to_multiple+attach+winner+format+re_subj, data = emails, family = binomial, subset = train)
 testData <- emails[!train, ]

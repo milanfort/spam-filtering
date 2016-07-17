@@ -17,7 +17,7 @@ knit        : slidify::knit2slides
 ```{r, echo=FALSE, results='hide', message=TRUE, cache=FALSE}
 set.seed(99)
 options(digits=2)
-url <- "../data/email.txt"
+url <- "http://www.milanfort.com/spam-filtering/data/email.txt"
 emails <- read.table(url, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 ```
 
@@ -106,8 +106,8 @@ Data analysis report. 2016. Available at
 2. Fort M.
 E-Mail Spam Filter Test.
 Interactive web application.
-Available at
-[http://www.shinyapps.io/app](http://www.shinyapps.io/app).
+Deployed at
+[https://milanfort.shinyapps.io/spam-filtering/](https://milanfort.shinyapps.io/spam-filtering/).
 Source code available at
 [https://github.com/milanfort/spam-filtering/](https://github.com/milanfort/spam-filtering/).
 

@@ -28,7 +28,7 @@ As such, it can be seen as a companion, practical implementation in R of the dis
 We will use the *email* dataset from
 [OpenIntro Statistics Extras](https://www.openintro.org/stat/extras.php) website, which we have re-deployed at our site for direct access.
 ```{r cache=FALSE}
-url <- "../data/email.txt"
+url <- "http://www.milanfort.com/spam-filtering/data/email.txt"
 emails <- read.table(url, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 ```
 The dataset consists of **`r nrow(emails)` e-mail messages**, where each message is classified
@@ -154,7 +154,7 @@ Hence, the model predicted that the specified e-mail message is a **`r ifelse(re
 ### Conclusion and Future Work
 
 This data analysis report laid the foundation for our data product - 
-a simple [interactive e-mail classifier](http://www.shinyapps.io/app)
+a simple [interactive e-mail classifier](https://milanfort.shinyapps.io/spam-filtering/)
 implemented using R and [Shiny](http://shiny.rstudio.com/).
 
 The accuracy of the prediction model, however, is not sufficient for a real-world spam filter.

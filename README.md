@@ -23,7 +23,7 @@ We chose to build a prediction model for classifying e-mail messages as spam or 
 Full data analysis report that serves as a theoretical foundation for the web application is available at 
 [http://www.milanfort.com/spam-filtering/](http://www.milanfort.com/spam-filtering/).
 The web application is deployed through the [shinyapps.io](http://www.shinyapps.io/) PaaS and is available at
-[http://www.shinyapps.io/app](http://www.shinyapps.io/app).
+[https://milanfort.shinyapps.io/spam-filtering/](https://milanfort.shinyapps.io/spam-filtering/).
 The accompaning presentation is available at 
 [http://www.milanfort.com/spam-filtering/slides/](http://www.milanfort.com/spam-filtering/slides/).
 
