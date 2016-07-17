@@ -54,7 +54,7 @@ fit <- glm(spam~to_multiple+attach+winner+format+re_subj, data = emails, family 
 testData <- emails[!train, ]
 prediction <- predict(fit, newdata = testData, type="response")
 threshold <- 0.5
-prediction <- ifelse(prediction > threshold, "yes", "no")
+prediction <- ifelse(prediction >= threshold, "yes", "no")
 accuracy <- mean(prediction == as.character(testData[, "spam"]))
 confusionMatrix <- table(prediction, as.character(testData[, "spam"]))
 ```

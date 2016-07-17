@@ -1,7 +1,7 @@
 ---
 title: "Spam Filtering: Using Machine Learning for E-Mail Content Classification"
 author: "Milan Fort"
-date: "14.07.2016"
+date: "17.07.2016"
 geometry: 1cm
 output:
   html_document:
@@ -115,7 +115,7 @@ In practice, such threshold could be somewhere between 0.95 and 0.99. Our data p
 For this evalution, we will set the threshold to 0.5.
 ```{r}
 threshold <- 0.5
-prediction <- ifelse(prediction > threshold, "yes", "no")
+prediction <- ifelse(prediction >= threshold, "yes", "no")
 accuracy <- mean(prediction == as.character(testData[, "spam"]))
 (confusionMatrix <- table(prediction, as.character(testData[, "spam"])))
 ```

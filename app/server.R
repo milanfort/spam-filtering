@@ -44,7 +44,7 @@ shinyServer(
         output$thresholdEvaluation <- renderText({threshold()})
         output$thresholdResult <- renderText({threshold()})
 
-        prediction <- reactive({ifelse(testPrediction > threshold(), "yes", "no")})
+        prediction <- reactive({ifelse(testPrediction >= threshold(), "yes", "no")})
         confusionMatrix <- reactive({table(prediction(), as.character(testData[, "spam"]))})
 
         output$correctOverall <- renderText({
