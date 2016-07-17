@@ -2,7 +2,7 @@
 title       : Spam Filtering
 subtitle    : Using Machine Learning for E-Mail Content Analysis
 author      : Milan Fort
-job         : www.milanfort.com
+job         : 17.07.2016
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
