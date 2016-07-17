@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spam Filtering</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Spam Filtering">
+  <meta name="author" content="Milan Fort">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Spam Filtering</h1>
+    <h2>Using Machine Learning for E-Mail Content Analysis</h2>
+    <p>Milan Fort<br/>www.milanfort.com</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="slide1" id="id1" style="background:white;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>This is our final project for the <em>Developing Data Products</em> online course on Coursera</li>
+<li>Task was to develop an interactive web application using Shiny, a web framework for R</li>
+<li>The application must support user input and perform arbitrary analysis interactively</li>
+<li>We chose to build a prediction model for classifying e-mail messages as spam or ham</li>
+<li>We employed the Logistic Regression [4] machine learning algorithm</li>
+<li>We used the dataset from [3] containing <strong>3921</strong> e-mail messages with
+<strong>20</strong> different variables</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Model Building and Evaluation</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>We used approximately 60% of the data for model training and 40% for testing</li>
+<li>We selected final model using <em>backward-elimination</em> based on <em>p-values</em> with 0.01 cutoff point</li>
+<li>The model evaluation depends on the selection of spam probability threshold</li>
+<li>Using spam probability threshold <strong>0.5</strong>, we get the following results:</li>
+</ul>
+
+<div style='float:left;width:66%;' class='centered'>
+  <ul>
+<li>Number of test e-mail messages: <strong>1543</strong></li>
+<li>Number of correctly classified messages:
+<strong>1412</strong></li>
+<li>Number of messages correctly classified as spam: <strong>18</strong></li>
+<li>Number of messages correctly classified as ham: <strong>1394</strong></li>
+<li>Prediction accuracy: <strong>0.92</strong></li>
+<li>Test error rate: <strong>0.08</strong></li>
+</ul>
+
+</div>
+<div style='float:right;width:33%;'>
+  <pre><code class="r">confusionMatrix
+</code></pre>
+
+<pre><code>##           
+## prediction   no  yes
+##        no  1394  121
+##        yes   10   18
+</code></pre>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Conclusion</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>The fitted prediction model serves well as a foundation for our web application [2]</li>
+<li>The application allows to configure e-mail properties, adjust spam probability threshold, and predicts the spam probability of the specified e-mail</li>
+<li>The accuracy of the prediction model is not sufficient for a real-world spam filter</li>
+<li>We suggest the following potential improvements:
+
+<ul>
+<li>Use more numerical predictors, transformed via log-transformation to eliminate outliers</li>
+<li>Create new predictors based on the history of the e-mail account (see [1] for details)</li>
+<li>Evaluate other machine learning algorithms, such as Bayes classifiers [4]</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>References</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Fort M.
+Spam Filtering: Using Machine Learning for E-Mail Content Classification.
+Data analysis report. 2016. Available at
+<a href="http://www.milanfort.com/spam-filtering/">http://www.milanfort.com/spam-filtering/</a>.</p></li>
+<li><p>Fort M.
+E-Mail Spam Filter Test.
+Interactive web application.
+Deployed at
+<a href="https://milanfort.shinyapps.io/spam-filtering/">https://milanfort.shinyapps.io/spam-filtering/</a>.
+Source code available at
+<a href="https://github.com/milanfort/spam-filtering/">https://github.com/milanfort/spam-filtering/</a>.</p></li>
+<li><p>Diez D.; Barr C.; Cetinkaya-Rundel M.
+OpenIntro Statistics, Second Edition.
+ISBN 9781478217206. CreateSpace Independent Publishing Platform, 2012.</p></li>
+<li><p>James G.; Witten D.; Hastie T.; Tibshirani R. 
+An Introduction to Statistical Learning: with Applications in R.
+Springer Texts in Statistics. ISBN 9781461471370. Springer, 2013.</p></li>
+</ol>
+
+<!-- --- Notes --- -->
+
+<!-- library(slidify) -->
+
+<!-- slidify("slides.Rmd") -->
+
+<!-- x squared: $x^2$ -->
+
+<!-- centered formulae: $$\frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}$$ -->
+
+<style>
+.title-slide {
+    background-color: white;
+}
+
+.title-slide hgroup > h1,
+.title-slide hgroup > h2 {
+    color: #2F4F4F;
+}
+
+.title-slide hgroup p {
+    color: #444444;
+}
+
+article {
+    margin-top: 50px;
+}
+
+slides > slide > hgroup + article {
+    margin-top: 50px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+ul {
+    list-style-type: square;
+}
+
+li ul {
+    list-style-type: disc;
+}
+
+div.centered ul {
+    padding-left: 45px;
+    list-style-type: disc;
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Model Building and Evaluation'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Conclusion'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='References'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
