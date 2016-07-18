@@ -117,7 +117,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Spam Filtering: Using Machine Learning for E-Mail Content Classification</h1>
 <h4 class="author"><em>Milan Fort</em></h4>
-<h4 class="date"><em>14.07.2016</em></h4>
+<h4 class="date"><em>17.07.2016</em></h4>
 
 </div>
 
@@ -325,7 +325,7 @@ prediction &lt;- predict(fit, newdata = testData, type=&quot;response&quot;)</co
 <p>We now need to determine a probability cutoff point (or <em>threshold</em>) – a minimum probability for spam. Setting this threshold too low would result in too many good e-mails classified as spam (<em>false positives</em>). On the other hand, setting it too high would mean that too many spam messages are not classified as spam (<em>false negatives</em>).</p>
 <p>In practice, such threshold could be somewhere between 0.95 and 0.99. Our data product will support the selection of the threshold as part of the user interface. For this evalution, we will set the threshold to 0.5.</p>
 <pre class="r"><code>threshold &lt;- 0.5
-prediction &lt;- ifelse(prediction &gt; threshold, &quot;yes&quot;, &quot;no&quot;)
+prediction &lt;- ifelse(prediction &gt;= threshold, &quot;yes&quot;, &quot;no&quot;)
 accuracy &lt;- mean(prediction == as.character(testData[, &quot;spam&quot;]))
 (confusionMatrix &lt;- table(prediction, as.character(testData[, &quot;spam&quot;])))</code></pre>
 <pre><code>##           
