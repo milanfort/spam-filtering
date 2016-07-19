@@ -7,7 +7,7 @@ This repository contains our final project for the
 [Developing Data Products](https://www.coursera.org/learn/data-products/)
 online course, a part of 
 [Data Science Specialization](https://www.coursera.org/specializations/jhu-data-science)
-on Coursera.
+from Johns Hopkins University on Coursera.
 
 The task was to develop an interactive web application using 
 [Shiny](http://shiny.rstudio.com/), as well as an accompanying presentation using
